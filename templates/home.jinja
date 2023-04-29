@@ -1,0 +1,11 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+    <h1>Home Page</h1>
+{% for place in places %}
+<p>{{place.place_name}}</p>
+<p>{{place.country.country_id}}</p>
+<p>{{place.place_description}}</p>
+<p>{{place.status}}</p>
+{% endfor%}
+{% endblock %}
