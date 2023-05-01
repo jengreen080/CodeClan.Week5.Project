@@ -1,0 +1,7 @@
+body {background-color: whitesmoke;}
+
+.place_article {background-color: white;
+                border-style: groove;
+                border-color: aqua;
+                padding: 20px;
+                margin: 20px}        

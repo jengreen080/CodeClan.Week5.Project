@@ -2,10 +2,15 @@
 
 {% block content %}
     <h1>Home Page</h1>
-{% for place in places %}
-<p>{{place.place_name}}</p>
-<p>{{place.country.country_id}}</p>
-<p>{{place.place_description}}</p>
-<p>{{place.status}}</p>
+{% for place in list_of_places %}
+<section class = place_article>
+    <h2>{{place.place_name}}</h2>
+    <h3>{{place.country.country_id}}</h3>
+    <p>{{place.place_description}}</p>
+    <p>{{place.status}}</p>
+    <form class = "delete_button" action = "/home/{{place.place_id}}/delete" method = "POST">
+        <button class = "delete">Delete</button>
+    </form>
+</section>
 {% endfor%}
 {% endblock %}

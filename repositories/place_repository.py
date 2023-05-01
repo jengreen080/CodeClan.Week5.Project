@@ -16,3 +16,30 @@ def save(place):
 def delete_all():
     sql = "DELETE FROM places"
     run_sql(sql)
+
+def select_all():
+    list_of_places = []
+
+    sql = "SELECT * FROM places"
+    results = run_sql(sql)
+    
+    for row in results:
+        place = Place(row["place_name"], row["country"], row["place_description"], row["status"], row["place_id"])
+        list_of_places.append(place)
+    return list_of_places
+
+def select(place_id):
+    place = None
+    sql = "SELECT * FROM places WHERE id = %s"
+    values = [place_id]
+    results = run_sql(sql, values)
+
+    if results: 
+        result = results[0]
+        place = Place(result["place_id"], result["place_name"], result["country"], result["place_description"], result["status"], result["place_id"])
+    return place
+
+def delete(place_id):
+    sql = "DELETE FROM places WHERE place_id = %s"
+    values = [place_id]
+    run_sql(sql, values)

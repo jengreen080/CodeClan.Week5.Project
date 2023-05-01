@@ -1,8 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template
+
+from controllers.travel_controller import travel_blueprint
 
 app = Flask(__name__)
 
-from controllers import travel_controller
+app.register_blueprint(travel_blueprint)
 
-if __name__ == "__main__":
+@app.route('/')
+def home():
+    return render_template('home.jinja')
+
+if __name__ == '__main__':
     app.run(debug=True)
