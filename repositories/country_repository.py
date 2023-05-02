@@ -15,3 +15,38 @@ def save(country):
 def delete_all():
     sql = "DELETE FROM countries"
     run_sql(sql)
+
+def select(country_id):
+    country = None
+    sql = "SELECT * FROM countries WHERE country_id = %s"
+    values = [country_id]
+    results = run_sql(sql, values)
+
+    if results: 
+        result = results[0]
+        country = Country(result["country_name"], result["continent"], country_id)
+    return country
+
+def select_all():
+    countries = []
+    sql = "SELECT * FROM countries"
+    results = run_sql(sql)
+
+    for row in results:
+
+        country = Country(row["country_name"], row["continent"], row["country_id"])
+        countries.append(country)
+    return countries
+
+def save(country):
+    sql = "INSERT INTO countries(country_name, continent) VALUES (%s, %s) RETURNING *"
+    values = [country.country_name, country.continent]
+    results = run_sql(sql, values)
+    country_id = results[0]["country_id"]
+    country.country_id = country_id
+    return country
+
+def delete(country_id):
+    sql = "DELETE FROM countries WHERE country_id = %s"
+    values = [country_id]
+    run_sql(sql, values)

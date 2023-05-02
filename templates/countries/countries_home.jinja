@@ -1,0 +1,17 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+
+<form action = "/countries{{country.country_id}}/" method = "POST">
+    <div>
+        <label for = "country_name">Country name:</label>
+        <input type = "text" id="country_name" name="country_name" value = "{{country.country_name}}" required autofocus>
+    </div>
+    <div>
+        <label for = "continent">Continent:</label>
+        <input type = "text" id = "continent" name = "continent" value = "{{country.continent}}">
+    </div>
+    <input type="submit" value="submit">
+</form>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+
+<form action = "/places/" method = "POST">
+    <div>
+        <label for = "place_name">Place name:</label>
+        <input type = "text" id="place_name" name="place_name" placeholder="Place name" required autofocus>
+    </div>
+    <div>
+        <label for = "country">Country:</label>
+        <select id = "country" name = "country">
+            <option value = "select_country">Please select a country</option>
+            {% for country in countries %}
+                <option value = "{{country.country_id}}">{{ country.country_name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for = "place_description">Place description:</label>
+        <input type="place_description" id="place_description" name="place_description" placeholder="Place description">
+    </div>
+    <div>
+        <label for="status">Status:</label>
+        <select id = "status" name = "status">
+            <option value = "select_status">Select a status</option>
+            <option value = "visited">Been there, done that. Got the postcard</option>
+            <option value = "not_visited">On the bucket list!</option>
+    </div>
+    <input type="submit" value="submit">
+</form>
+
+{% endblock %}

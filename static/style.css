@@ -4,4 +4,10 @@ body {background-color: whitesmoke;}
                 border-style: groove;
                 border-color: aqua;
                 padding: 20px;
-                margin: 20px}        
+                margin: 20px}   
+                
+.country_article {background-color: white;
+                border-style: groove;
+                border-color: aqua;
+                padding: 20px;
+                margin: 20px} 
