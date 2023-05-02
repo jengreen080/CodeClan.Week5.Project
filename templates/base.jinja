@@ -4,15 +4,16 @@
         <title>{{ title }} - Locations</title>
     </head>
     <body>
-    <section class="try1">
+    <header>
+    <section class="nav_link">
         <ul>
-            <li class="navLink"><a href="/">Home</a></li>
+            <li><a href="/">Home</a></li>
         </ul>
         <ul>
-            <li class="navLink"><a href="/places/">Places</a></li>
+            <li><a href="/places/">See list of places</a></li>
         </ul>
         <ul>
-            <li class="navLink"><a href="/countries/">Countries</a></li>
+            <li><a href="/countries/">See list of countries</a></li>
         </ul>
         {# <ul>
             <li class="navLink"><a href="/my_bucket_list/">My bucket list</a></li>
@@ -24,14 +25,16 @@
         {# <form class = "addPlace" action = "{{ url_for(places.new_place)}}" method = "POST">
             <button class = "new_place">Add new place</button>
         </form> #}
-            
+    <section class = "navbutton">
     <form action = "/places/new_country" method = "GET">
-        <button class = "new">Add new country</button>
-</form>
-        <form action = "/places/new_place" method = "GET">
-        <button class = "new">Add new place</button>
+        <button class = "new_button">Add new country</button>
+    </form>
+    <form action = "/places/new_place" method = "GET">
+        <button class = "new_button">Add new place</button>
+    </form>
+    </section>
         <hr>
-</form>
+</header>
         {% block content %}{% endblock %}
     </body>
 </html>

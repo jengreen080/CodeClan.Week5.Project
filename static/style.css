@@ -1,6 +1,42 @@
-body {background-color: whitesmoke;}
+body {background-color: whitesmoke;
+font-family:Arial, Helvetica, sans-serif;}
 
-.place_article {background-color: white;
+h2 {margin: 5px 0px 0px 0px}
+h3 {margin: 5px 0px 0px 0px}
+p {margin: 5px 0px 0px 0px}
+
+header {background-color: rgb(63, 169, 193);}
+
+.nav_link {display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.nav_link > ul {padding: 0px 10px 0px 10px;}
+.nav_link > ul > li {list-style-type: none;}
+.nav_link > ul > li > a {text-decoration: none;
+color: white}
+
+.navbutton{display: flex;
+    justify-content: center;}
+
+.navbutton > form {padding: 0px 10px 0px 10px}
+
+.new_button {background-color: rgb(52, 144, 164);
+border: solid;
+border-radius: 7px;
+padding: 10px}
+
+
+.welcome {text-align: center;}
+
+
+
+
+
+.place_article {display: flex;
+    flex-direction: column;
+    background-color: white;
                 border-style: groove;
                 border-color: aqua;
                 padding: 20px;
@@ -12,4 +48,8 @@ body {background-color: whitesmoke;}
                 padding: 20px;
                 margin: 20px}
                 
-.try1 {}
+
+
+
+
+.delete_button {margin: 10px 0px 10px 0px}

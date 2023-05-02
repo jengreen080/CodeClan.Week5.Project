@@ -3,16 +3,17 @@
 {% block content %}
 
 {% for place in list_of_places %}
-<section class = place_article>
+<div class ="main_content">
+<section class = "place_article">
     <h2>{{place.place_name}}</h2>
-    <h3>{{place.country.country_name}}</h3>
-    <p>{{place.place_description}}</p>
+    <h3>Country: {{place.country.country_name}}</h3>
+    <p>Reason to go: {{place.place_description}}</p>
     <p>
     {% if place.visited == True %}
-    Been there, done that. Got the postcard
+    Status: Been there, done that. Got the postcard
     {# <i class="fa-duotone fa-envelopes-bulk fa-beat" style="--fa-primary-color: #7e501b; --fa-secondary-color: #7e501b;"></i> #}
     {% else %}
-    On the bucket list!
+    Status: On the bucket list!
     {# <i class="fa-duotone fa-earth-americas fa-beat" style="--fa-primary-color: #50b970; --fa-secondary-color: #5aa1ce;"></i> #}
     {% endif %}
     </p>
@@ -20,5 +21,6 @@
         <button class = "delete">Delete</button>
     </form>
 </section>
+</div>
 {% endfor%}
 {% endblock %}
