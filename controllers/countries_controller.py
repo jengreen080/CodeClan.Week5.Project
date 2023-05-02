@@ -11,12 +11,12 @@ countries_blueprint = Blueprint("countries", __name__)
 @countries_blueprint.route("/countries/")
 def show_all_countries():
     list_of_countries = country_repo.select_all()
-    return render_template("countries/countries_home.html", list_of_countries = list_of_countries)
+    return render_template("countries/countries_home.jinja", list_of_countries = list_of_countries)
 
 @countries_blueprint.route("/places/new_country")
 def new_country():
     countries = country_repo.select_all()
-    return render_template("countries/new_country.html", countries = countries)
+    return render_template("countries/new_country.jinja", countries = countries)
 
 @countries_blueprint.route("/countries/", methods = ["POST"])
 def submit_new_country():
@@ -35,4 +35,4 @@ def delete_country(country_id):
 def edit_a_country(country_id):
     place = place_repo.select_all()
     country = country_repo.select(country_id)
-    return render_template('countries/edit.html', country = country, place = place)
+    return render_template('countries/edit.jinja', country = country, place = place)
