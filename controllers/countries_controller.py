@@ -11,12 +11,12 @@ countries_blueprint = Blueprint("countries", __name__)
 @countries_blueprint.route("/countries/")
 def show_all_countries():
     list_of_countries = country_repo.select_all()
-    return render_template("countries/countries_home.jinja", list_of_countries = list_of_countries)
+    return render_template("countries/countries_home.html", list_of_countries = list_of_countries)
 
 @countries_blueprint.route("/places/new_country")
 def new_country():
     countries = country_repo.select_all()
-    return render_template("countries/new_country.jinja", countries = countries)
+    return render_template("countries/new_country.html", countries = countries)
 
 @countries_blueprint.route("/countries/", methods = ["POST"])
 def submit_new_country():

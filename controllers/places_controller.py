@@ -11,7 +11,7 @@ places_blueprint = Blueprint("places", __name__)
 @places_blueprint.route("/places/")
 def places():
     list_of_places = place_repo.select_all()
-    return render_template("places/places.jinja", list_of_places = list_of_places)
+    return render_template("places/places.html", list_of_places = list_of_places)
 
 @places_blueprint.route("/places/<place_id>/delete", methods = ["POST"])
 def delete_place(place_id):
@@ -21,7 +21,7 @@ def delete_place(place_id):
 @places_blueprint.route("/places/new_place")
 def new_place():
     countries = country_repo.select_all()
-    return render_template("places/new_place.jinja", countries = countries)
+    return render_template("places/new_place.html", countries = countries)
 
 @places_blueprint.route("/places/", methods = ["POST"])
 def submit_new_place():
@@ -39,9 +39,9 @@ def submit_new_place():
 # @places_blueprint.route("/places/my_bucket_list")
 # def my_bucket_list():
 #     list_of_places = place_repo.select_all()
-#     return render_template("places/places.jinja", list_of_places = list_of_places)
+#     return render_template("places/places.html", list_of_places = list_of_places)
 
 # @places_blueprint.route("/my_bucket_list/<id>", methods = ["GET"])
 # def show_bucket_list(place_id):
 #     bucket_list = place_repo.select(place_id)
-#     return render_template("my_bucket_list.jinja", places_to_display = bucket_list)
+#     return render_template("my_bucket_list.html", places_to_display = bucket_list)
