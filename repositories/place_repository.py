@@ -46,3 +46,8 @@ def delete(place_id):
     sql = "DELETE FROM places WHERE place_id = %s"
     values = [place_id]
     run_sql(sql, values)
+
+def update(place):
+    sql = "UPDATE places SET (place_name, country_id, place_description, visited) = (%s, %s) WHERE place_id = %s"
+    values = [place.place_name, place.country_id, place.place_description, place.visited]
+    run_sql(sql, values)

@@ -36,12 +36,22 @@ def submit_new_place():
     place_repo.save(new_place)
     return redirect("/places/")
 
-# @places_blueprint.route("/places/my_bucket_list")
-# def my_bucket_list():
-#     list_of_places = place_repo.select_all()
-#     return render_template("places/places_home.jinja", list_of_places = list_of_places)
 
-# @places_blueprint.route("/my_bucket_list/<id>", methods = ["GET"])
-# def show_bucket_list(place_id):
-#     bucket_list = place_repo.select(place_id)
-#     return render_template("my_bucket_list.jinja", places_to_display = bucket_list)
+
+@places_blueprint.route("/places/<place_id>/edit", methods=['GET'])
+def edit_a_place(place_id):
+    place = place_repo.select(place_id)
+    country = country_repo.select_all()
+    
+    return render_template('/places/edit_place.jinja', country = country, place = place)
+
+
+@places_blueprint.route("/places/<place_id>", methods=['POST'])
+def update_place(place_id):
+    name = request.form['place_name']
+    country = country_repo.select(place_id)
+    description = request.form['country_description']
+    visited = request.form['visited']
+    place = Place(place_name = name, country = country, description = description, visited = visited)
+    country_repo.update(country)
+    return redirect('/countries/')

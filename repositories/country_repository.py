@@ -35,7 +35,10 @@ def select(country_id):
     sql = "SELECT * FROM countries WHERE country_id = %s"
     values = [country_id]
     results = run_sql(sql, values)
-
+    
+    # country = Country(country_name = results["country_name"], continent = results["continent"], country_id = results["country_id"])
+    # print(sql,values, resl)
+    # return country
     if results: 
         result = results[0]
         country = Country(result["country_name"], result["continent"], country_id)
@@ -50,12 +53,15 @@ def select(country_id):
 #     country.country_id = country_id
 #     return country
 
+
+
 def delete(country_id):
     sql = "DELETE FROM countries WHERE country_id = %s"
     values = [country_id]
     run_sql(sql, values)
 
-# def update(country):
-#     sql = "UPDATE countries SET (country_name, continent) = (%s, %s) WHERE country_id = %s"
-#     values = [country.country_name, country.continent, country.country_id]
-#     run_sql(sql, values)
+
+def update(country):
+    sql = "UPDATE countries SET (country_name, continent) = (%s, %s) WHERE country_id = %s"
+    values = [country.country_name, country.continent, country.country_id]
+    run_sql(sql, values)
