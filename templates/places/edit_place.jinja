@@ -5,11 +5,29 @@
 <form action = "/places/{{place.place_id}}" method = "POST">
     <div>
         <label for = "place_name">Place name:</label>
-        <input type = "text" id="country_name" name="country_name" value = "{{country.country_name}}" required autofocus>
+        <input type = "text" id="place_name" name="place_name" value="{{place.place_name}}" required autofocus>
     </div>
     <div>
-        <label for = "continent">Continent:</label>
-        <input type = "text" id = "continent" name = "continent" value = "{{country.continent}}">
+    <label for = "country">Country:</label>
+        <select id = "country" name = "country">
+            <option value = "select_country">Please select a country</option>
+            {% for country in countries %}
+                <option value = "{{country.country_id}}">{{ country.country_name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for = "place_description">Place description:</label>
+        <input type = "text" id = "place_description" name = "place_description" value = "{{place.place_description}}">
+    </div>
+    <div>
+        <label for = "status">Status:</label>
+        
+        <select id = "status" name = "visited" value = "{{place.visited}}">
+            <option value = "select_status">Select a status</option>
+            <option value = "visited">Been there, done that. Got the postcard</option>
+            <option value = "not_visited">On the bucket list!</option>
+        </select>
     </div>
     <input type="submit" value="submit">
 </form>

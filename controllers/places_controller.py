@@ -41,17 +41,21 @@ def submit_new_place():
 @places_blueprint.route("/places/<place_id>/edit", methods=['GET'])
 def edit_a_place(place_id):
     place = place_repo.select(place_id)
-    country = country_repo.select_all()
-    
-    return render_template('/places/edit_place.jinja', country = country, place = place)
+    countries = country_repo.select_all()
+    return render_template('/places/edit_place.jinja', countries = countries, place = place)
 
 
 @places_blueprint.route("/places/<place_id>", methods=['POST'])
 def update_place(place_id):
     name = request.form['place_name']
-    country = country_repo.select(place_id)
-    description = request.form['country_description']
-    visited = request.form['visited']
-    place = Place(place_name = name, country = country, description = description, visited = visited)
-    country_repo.update(country)
-    return redirect('/countries/')
+    country_id = request.form['country']
+    country = country_repo.select(country_id)
+    # country = country_repo.select(place_id)
+    description = request.form['place_description']
+    if request.form['visited'] == 'visited':
+        visited = True
+    else:
+        visited = False
+    place = Place(name, country, description, visited, place_id)
+    place_repo.update(place)
+    return redirect('/places/')

@@ -32,14 +32,15 @@ def select_all():
 
 def select(place_id):
     place = None
-    sql = "SELECT * FROM places WHERE id = %s"
+    sql = "SELECT * FROM places WHERE place_id = %s"
     values = [place_id]
     results = run_sql(sql, values)
+    print(place_id)
 
     if results: 
         result = results[0]
         country = country_repo.select(result["country_id"])
-        place = Place(result["place_id"], result["place_name"], country, result["place_description"], result["visited"], result["place_id"])
+        place = Place(result["place_name"], country, result["place_description"], result["visited"], result["place_id"])
     return place
 
 def delete(place_id):
@@ -48,6 +49,6 @@ def delete(place_id):
     run_sql(sql, values)
 
 def update(place):
-    sql = "UPDATE places SET (place_name, country_id, place_description, visited) = (%s, %s) WHERE place_id = %s"
-    values = [place.place_name, place.country_id, place.place_description, place.visited]
+    sql = "UPDATE places SET (place_name, country_id, place_description, visited) = (%s, %s, %s, %s) WHERE place_id = %s"
+    values = [place.place_name, place.country.country_id, place.place_description, place.visited, place.place_id]
     run_sql(sql, values)

@@ -17,6 +17,9 @@
     {# <i class="fa-duotone fa-earth-americas fa-beat" style="--fa-primary-color: #50b970; --fa-secondary-color: #5aa1ce;"></i> #}
     {% endif %}
     </p>
+    <form class = "update_button" action = "/places/{{place.place_id}}/edit" method = "GET">
+        <button type="submit">Update place</button>
+    </form>
     <form class = "delete_button" action = "/places/{{place.place_id}}/delete" method = "POST">
         <button class = "delete">Delete</button>
     </form>
