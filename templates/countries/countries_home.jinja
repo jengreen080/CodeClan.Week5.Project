@@ -2,16 +2,15 @@
 
 {% block content %}
 
-<form action = "/countries{{country.country_id}}/" method = "POST">
-    <div>
-        <label for = "country_name">Country name:</label>
-        <input type = "text" id="country_name" name="country_name" value = "{{country.country_name}}" required autofocus>
-    </div>
-    <div>
-        <label for = "continent">Continent:</label>
-        <input type = "text" id = "continent" name = "continent" value = "{{country.continent}}">
-    </div>
-    <input type="submit" value="submit">
-</form>
-
+{% for country in list_of_countries %}
+<div class ="main_content">
+<section class = "country_article">
+    <h2>{{country.country_name}}</h2>
+    <h3>Continent: {{country.continent}}</h3>
+    <form class = "delete_button" action = "/countries/{{country.country_id}}/delete" method = "POST">
+        <button class = "delete">Delete</button>
+    </form>
+</section>
+</div>
+{% endfor%}
 {% endblock %}
