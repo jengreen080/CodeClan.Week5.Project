@@ -36,3 +36,11 @@ def edit_a_country(country_id):
     place = place_repo.select_all()
     country = country_repo.select(country_id)
     return render_template('countries/edit.jinja', country = country, place = place)
+
+@countries_blueprint.route("/countries/<country_id>", methods=['POST'])
+def update_country(country_id):
+    country_name = request.form['country_name']
+    continent = request.form['continent']
+    country = Country(country_name, continent, country_id)
+    country_repo.update(country)
+    return redirect('/countries')

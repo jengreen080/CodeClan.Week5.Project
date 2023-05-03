@@ -22,7 +22,8 @@ color: white}
 
 .navbutton > form {padding: 0px 10px 0px 10px}
 
-.new_button {background-color: rgb(52, 144, 164);
+.new_button {background-color: rgb(4, 246, 246, 0.5);
+    
 border: solid;
 border-radius: 7px;
 padding: 10px}
@@ -42,7 +43,7 @@ img {display: block;
     flex-direction: column;
     background-color: white;
                 border-style: groove;
-                border-color: aqua;
+                border-color: rgb(4, 246, 246);
                 padding: 20px;
                 margin: 20px}   
                 

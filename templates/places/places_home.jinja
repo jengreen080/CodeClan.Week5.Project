@@ -10,10 +10,10 @@
     <p>Reason to go: {{place.place_description}}</p>
     <p>
     {% if place.visited == True %}
-    Status: Been there, done that. Got the postcard
+    Status: <i>Been there, done that. Got the postcard</i>
     {# <i class="fa-duotone fa-envelopes-bulk fa-beat" style="--fa-primary-color: #7e501b; --fa-secondary-color: #7e501b;"></i> #}
     {% else %}
-    Status: On the bucket list!
+    Status: <i>On the bucket list!</i>
     {# <i class="fa-duotone fa-earth-americas fa-beat" style="--fa-primary-color: #50b970; --fa-secondary-color: #5aa1ce;"></i> #}
     {% endif %}
     </p>

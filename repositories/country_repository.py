@@ -50,3 +50,8 @@ def delete(country_id):
     sql = "DELETE FROM countries WHERE country_id = %s"
     values = [country_id]
     run_sql(sql, values)
+
+def update(country):
+    sql = "UPDATE countries SET (country_name, continent) = (%s, %s) WHERE country_id = %s"
+    values = [country.country_name, country.continent, country.country_id]
+    run_sql(sql, values)
