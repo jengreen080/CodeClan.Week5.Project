@@ -1,7 +1,8 @@
 <html>
     <head>
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-        <title>{{ title }} - Locations</title>
+        <title>{{ title }} Bucket List App</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
     <header>
@@ -10,17 +11,11 @@
             <li><a href="/">Home</a></li>
         </ul>
         <ul>
-            <li><a href="/places/">See list of places</a></li>
-        </ul>
-        <ul>
             <li><a href="/countries/">See list of countries</a></li>
         </ul>
-        {# <ul>
-            <li class="navLink"><a href="/my_bucket_list/">My bucket list</a></li>
-        </ul>
         <ul>
-            <li class="navLink"><a href="/been_there_done_that/">Been there, done that</a></li>
-        </ul> #}
+            <li><a href="/places/">See list of places</a></li>
+        </ul>
     </section>
         {# <form class = "addPlace" action = "{{ url_for(places.new_place)}}" method = "POST">
             <button class = "new_place">Add new place</button>
