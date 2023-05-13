@@ -11,12 +11,13 @@ places_blueprint = Blueprint("places", __name__)
 @places_blueprint.route("/places/")
 def places():
     list_of_places = place_repo.select_all()
-    return render_template("places/places_home.jinja", list_of_places = list_of_places)
+    return render_template("places/places_home.html", list_of_places = list_of_places)
 
 @places_blueprint.route("/places/<place_id>/delete", methods = ["POST"])
 def delete_place(place_id):
     place_repo.delete(place_id)
     return redirect("/places/")
+
     
 @places_blueprint.route("/places/new_place")
 def new_place():
